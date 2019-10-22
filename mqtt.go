@@ -58,7 +58,7 @@ func disconnectmqtt(c mqtt.Client) {
 }
 
 func sanitizeTopic(topic string) (retstr string) {
-	retstr = strings.ReplaceAll(topic, "/", "_")
+	retstr = strings.Replace(topic, "/", "_", -1)
 	return
 }
 
