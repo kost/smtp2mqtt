@@ -73,7 +73,7 @@ Static compiling:
 
     CGO_ENABLED=0 go build -ldflags "-extldflags -static"
 
-### Windows builds:
+### Windows builds
 
 Just type:
 
