@@ -19,7 +19,7 @@ var (
 	mqttServer   = flag.String("mqtt", "tcp://127.0.0.1:1883", "connect to specified MQTT server")
 	mqttUser     = flag.String("user", "", "MQTT username for connecting")
 	mqttPassword = flag.String("password", "", "MQTT password for connecting")
-	mqttJson     = flag.Bool("json", false, "post to MQTT topic as json")
+	mqttJSON     = flag.Bool("json", false, "post to MQTT topic as json")
 	mqttKeep     = flag.Bool("keep", false, "keep connection to MQTT")
 	mqttTopic    = flag.String("topic", "", "prepend specified string to MQTT topic (e.g. 'smtp/')")
 	listenStr    = flag.String("listen", "0.0.0.0:10025", "Listen on specific IP and port")
@@ -29,7 +29,7 @@ var (
 
 func smtphandler(peer smtpd.Peer, env smtpd.Envelope) error {
 
-	type MailJson struct {
+	type MailJSON struct {
 		Subject    string   `json:"subject"`
 		Sender     string   `json:"sender"`
 		Recipients []string `json:"recipients"`
@@ -77,8 +77,8 @@ func smtphandler(peer smtpd.Peer, env smtpd.Envelope) error {
 		log.Printf("email multipart: %v", emailIsMultiPart)
 	}
 
-	if *mqttJson {
-		mailjson := MailJson{
+	if *mqttJSON {
+		mailjson := MailJSON{
 			Subject:    subject,
 			Sender:     env.Sender,
 			Recipients: env.Recipients,
