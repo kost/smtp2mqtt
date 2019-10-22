@@ -3,7 +3,8 @@
 
 # smtp2mqtt
 Simple SMTP to MQTT relay/forwarder.
-Swiss knife for your OS shells over the Web.
+
+Ever wanted to just forward your alert e-mails to MQTT? smtp2mqtt can do it.
 
 Features
 ========
