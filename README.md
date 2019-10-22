@@ -63,7 +63,7 @@ You can find binary and source releases on Github under "Releases". Here's the [
 
 # Building
 
-### Linux/Mac/POSIX builds
+## Linux/Mac/POSIX builds
 
 Just type:
 
@@ -73,7 +73,7 @@ Static compiling:
 
     CGO_ENABLED=0 go build -ldflags "-extldflags -static"
 
-### Windows builds
+## Windows builds
 
 Just type:
 
