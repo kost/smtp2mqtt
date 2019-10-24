@@ -6,6 +6,7 @@ import (
 	"io"
 	"io/ioutil"
 	"mime"
+	"log"
 	"mime/multipart"
 	"net/mail"
 	"strings"
@@ -69,12 +70,17 @@ func parseBody(header mail.Header, body []byte) (html []byte, text []byte, isMul
 			partDisposition := p.Header.Get("Content-Disposition")
 			dispo := strings.ToLower(partDisposition)
 
+			if *enableDebug {
+				log.Printf("Parsing multipart: %s with %s", partMediaType, dispo)
+			}
+
 			if !strings.Contains(dispo, "attachment") {
 				var htmlT, textT []byte
 				htmlT, textT, err = parsePart(partMediaType, dispo, partParams["charset"], p.Header.Get("Content-Transfer-Encoding"), slurp)
 				if len(htmlT) > 0 {
 					html = htmlT
-				} else {
+				}
+				if len(textT) > 0 {
 					text = textT
 				}
 			}
