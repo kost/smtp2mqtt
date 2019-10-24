@@ -6,6 +6,8 @@ import (
 	"errors"
 	"flag"
 	"io/ioutil"
+	"os"
+	"fmt"
 	"log"
 	"net/mail"
 	"strings"
@@ -25,6 +27,7 @@ var (
 	listenStr    = flag.String("listen", "0.0.0.0:10025", "Listen on specific IP and port")
 	allowStr     = flag.String("allow", "", "Allow only specific IPs to send e-mail (e.g. 192.168.1.)")
 	denyStr      = flag.String("deny", "", "Deny specific IPs to send e-mail (e.g. 192.168.1.10)")
+	displayVer   = flag.Bool("version", false, "Display version")
 )
 
 func smtphandler(peer smtpd.Peer, env smtpd.Envelope) error {
@@ -131,6 +134,11 @@ func main() {
 	var server *smtpd.Server
 
 	flag.Parse()
+
+	if *displayVer {
+		fmt.Printf("version %s - %s\n", Version, CommitID)
+		os.Exit(1);
+	}
 
 	// No-op server. Accepts and discards
 	server = &smtpd.Server{
