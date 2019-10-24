@@ -36,30 +36,34 @@ You can find binary and source releases on Github under "Releases". Here's the [
 
 # Options explained
 
-    $ ./smtp2mqtt
-    Usage of ./smtp2mqtt:
-      -allow string
-        	Allow only specific IPs to send e-mail (e.g. 192.168.1.)
-      -debug
-        	Enable debug messages
-      -deny string
-        	Deny specific IPs to send e-mail (e.g. 192.168.1.10)
-      -json
-        	post to MQTT topic as json
-      -keep
-        	keep connection to MQTT
-      -listen string
-        	Listen on specific IP and port (default "0.0.0.0:10025")
-      -mqtt string
-        	connect to specified MQTT server (default "tcp://127.0.0.1:1883")
-      -password string
-        	MQTT password for connecting
-      -topic string
-        	prepend specified string to MQTT topic (e.g. 'smtp/')
-      -user string
-        	MQTT username for connecting
-      -welcome string
-        	Welcome message for SMTP session (default "MQTT-forwarder ESMTP ready.")
+```
+$ ./smtp2mqtt
+Usage of ./smtp2mqtt:
+  -allow string
+    	Allow only specific IPs to send e-mail (e.g. 192.168.1.)
+  -debug
+    	Enable debug messages
+  -deny string
+    	Deny specific IPs to send e-mail (e.g. 192.168.1.10)
+  -json
+    	post to MQTT topic as json
+  -keep
+    	keep connection to MQTT
+  -listen string
+    	Listen on specific IP and port (default "0.0.0.0:10025")
+  -mqtt string
+    	connect to specified MQTT server (default "tcp://127.0.0.1:1883")
+  -password string
+    	MQTT password for connecting
+  -topic string
+    	prepend specified string to MQTT topic (e.g. 'smtp/')
+  -user string
+    	MQTT username for connecting
+  -version
+    	Display version
+  -welcome string
+    	Welcome message for SMTP session (default "MQTT-forwarder ESMTP ready.")
+```
 
 # Building
 
