@@ -85,7 +85,9 @@ func smtphandler(peer smtpd.Peer, env smtpd.Envelope) error {
 			EmailText:  string(emailText),
 			EmailHTML:  string(emailHTML),
 		}
-		log.Printf("JSON struct: %v", mailjson)
+		if *enableDebug {
+			log.Printf("JSON struct: %v", mailjson)
+		}
 		jsonb, errj := json.Marshal(mailjson)
 		if errj != nil {
 			log.Printf("error marshalling JSON: %v", errj)
