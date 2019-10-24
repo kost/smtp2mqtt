@@ -142,6 +142,9 @@ func main() {
 		return
 	}
 	log.Printf("Listening on: %s", *listenStr)
-	server.ListenAndServe(*listenStr)
+	errl := server.ListenAndServe(*listenStr)
+	if errl != nil {
+		log.Printf("Error listening on '%s': %v", *listenStr, errl)
+	}
 	closemqtt()
 }
