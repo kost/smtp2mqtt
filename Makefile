@@ -1,6 +1,6 @@
 OUTPUT_DIR = ./builds
 GIT_COMMIT = `git rev-parse HEAD | cut -c1-7`
-VERSION = 1.0.0
+VERSION = 1.2.0
 BUILD_OPTIONS = -ldflags "-X main.Version=$(VERSION) -X main.CommitID=$(GIT_COMMIT)"
 
 smtp2mqtt: main.go mail.go mqtt.go version.go Makefile
